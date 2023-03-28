@@ -1,9 +1,11 @@
 {
   "name": "random-set-interval",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "lint-fix": "semistandard --fix",
-    "test": "semistandard && jest --config ./jest.config.json"
+    "test": "semistandard && jest --config ./jest.config.json",
+    "pretest": "babel --plugins @babel/plugin-transform-modules-commonjs index.mjs --out-file index.js",
+    "prepublishOnly": "babel --plugins @babel/plugin-transform-modules-commonjs index.mjs --out-file index.js"
   },
   "description": "Random Set Interval/Delay",
   "exports": {
@@ -21,10 +23,16 @@
     "setTimeout",
     "timeout"
   ],
+  "semistandard": {
+    "ignore": [
+      "index.js"
+    ]
+  },
   "repository": "aankur/random-set-interval",
   "author": "Ankur Deep Jaiswal <ankur@techgentsia.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "babel-jest": "^29.5.0",
