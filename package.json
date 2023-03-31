@@ -5,7 +5,7 @@
     "lint-fix": "semistandard --fix",
     "test": "semistandard && jest --config ./jest.config.json",
     "pretest": "babel --plugins @babel/plugin-transform-modules-commonjs index.mjs --out-file index.js",
-    "prepublishOnly": "babel --plugins @babel/plugin-transform-modules-commonjs index.mjs --out-file index.js"
+    "prepublishOnly": "npm run test"
   },
   "description": "Random Set Interval/Delay",
   "exports": {
